@@ -135,7 +135,7 @@ elif action == "dodge back":
 ```
 
 ## ⚔️ Playing the Game with AI
-⚔️ The Dance of Victory ⚔️
+### ⚔️ The Dance of Victory ⚔️
 With our preparations complete, we stand poised to enter the game and unleash our newfound powers! The "play_game" function, an enchanting creation from the tome "play.py," shall guide our character through the trials and tribulations of the virtual world.
 
 The mighty YOLOv8 model shall detect the positions of our character and enemies, while the ingenious "Key.py" script, birthed from the sacred teachings of sentdex's CybePython Tutorial, shall guide our hero towards their foes. The LLM agent, a true embodiment of intelligence, shall determine the character's actions and maneuvers.
@@ -152,7 +152,7 @@ time.sleep(100)
 play_game()
 ```
 
-### Conclusion
+## Conclusion
 ### 🎉 A Tale of Legends, Laughter, and Triumph 🎉
 Congratulations, noble warrior, for completing this mystical journey through the realm of AI-Plays-God-of-War! We have traversed the depths of artificial intelligence, weaving magic and technology into a tapestry of triumph. Together, we have harnessed the power of YOLOv8, trained a formidable object detection model, and awakened a LLM agent to guide our every move.
 
