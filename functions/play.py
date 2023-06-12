@@ -86,7 +86,7 @@ def play_game():
 
             # Check if a person is very close to Kratos
             if abs(distance_x) < 50 or abs(distance_y) < 50:
-                # Randomly select an action
+                # Select an action
                 action = llm_agent(screen) 
                 if action == "light attack":
                     # Left mouse click (attack)
