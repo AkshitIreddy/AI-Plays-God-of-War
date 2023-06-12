@@ -3,6 +3,8 @@
 ## Overview 😄📜 
 Welcome, brave warrior, to the magical realm of AI-Plays-God-of-War! 🎮 🎉 This project utilizes the power of AI to play the popular game God of War. With the help of a LLM agent, an image captioning model, and YOLOv8 for object detection, our AI takes control of the main character, Kratos, and guides his actions in the game. You can try this out for free using the Cohere trial API Key. This README will provide you with step-by-step instructions on how to implement this AI in any game of your choice with minimal effort. Prepare yourself for an adventure filled with excitement and triumph! 😄🛡️🎮🤖
 
+![demo](https://github.com/AkshitIreddy/AI-Plays-God-of-War/assets/90443032/e73fb8b3-3fa6-4fac-81a3-4c71b29db472)
+
 ## Prerequisites 💭📝
 Before we dive into the exciting details, let's make sure we have everything set up:
 #### 1. Cohere Trial API Key: To get started, sign up for a Cohere account and obtain your trial API key. This key will let you use Cohere's Language models for free.
