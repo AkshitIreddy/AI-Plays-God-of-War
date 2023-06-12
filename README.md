@@ -19,7 +19,7 @@ Let's take a quick look at the structure of our project. It consists of several 
 #### [✨ Modifying the LLM Agent and Play Functions](#5)
 Now, let's dive into each step and explore how each step works. 🤖🎮
 
-## Step 1: Creating a Custom YOLOv8 Model<a name='1'></a>
+## ✨ Step 1: Creating a Custom YOLOv8 Model<a name='1'></a>
 ### ✨ First Steps on the Path of the Gods ✨
 To begin your epic quest, you must forge a YOLOv8 model capable of identifying characters, enemies, and other NPCs within the game. To enable the AI to detect characters and objects in the game, we'll start by creating a custom YOLOv8 model. This model will be trained to identify our main character, enemy characters, and other non-playable character (NPC) types based on your specific needs.
 
@@ -27,7 +27,7 @@ To create this model, we'll need videos of each character recorded individually.
 
 For simplicity, instead of manually identifying bounding boxes for each character in each frame of the video, we'll leverage object detection techniques. We'll use an object detection model to detect characters in the videos and use the resulting bounding box coordinates as training data. Since most characters in games have a humaniod body they will be detected as humans and we can use those co-ordinates. This significantly reduces the manual effort involved.
 
-## Preprocessing Training Videos<a name='2'></a>
+## 🌌 Step 2: Preprocessing Training Videos<a name='2'></a>
 ### 🌌 Unveiling the Mystical Rituals of Video Preprocessing 🌌
 Once we have recorded the videos for each character, we'll preprocess them to remove frames where no detections are found. This step helps us clean the data and ensures we only include frames where the model can accurately detect the character's position. Through the use of the magical "preprocess_training_video" function in the hallowed script known as "preprocess.py," we shall cleanse our videos of imperfections. You can also use this to figure out the correct threshold value where the model is able to detect the position of our character which will come in handy when you are creating the dataset. 
 ```sh
@@ -40,7 +40,7 @@ video_path = "training_videos/atreus_training_video.mp4"
 preprocess_training_video(video_path)
 ```
 
-## Step 3: Creating the Dataset<a name='3'></a>
+## 📦 Step 3: Creating the Dataset<a name='3'></a>
 ### 📦 Forging the Dataset 📦
 Now that our videos have been purified, we can venture forth to create a magnificent dataset. With the video paths and threshold values in hand, we shall employ the mighty "create_dataset" function from the sacred tome known as "dataset.py" to generate a dataset that will serve as training data for our object detection model. Depending on which threshold performed best at identifying the character during the preprocessing step, we'll compile a list of video paths and corresponding threshold values. The generated dataset will contain the necessary information for training our custom object detection model.
 ```sh
@@ -54,7 +54,7 @@ threshold_list = [0.6, 0.7, 0.9]
 create_dataset(video_paths, threshold_list)
 ```
 
-## Step 4: Training the Object Detection Model<a name='4'></a>
+## 🔥 Step 4: Training the Object Detection Model<a name='4'></a>
 ### 🔥 Igniting the Flames of Training 🔥
 With the dataset in our possession, we now embark upon the holy act of training. Now comes the exciting part—training our object detection model! We'll use the powerful YOLOv8 model to train on the dataset we created in the previous step. This model will learn to identify our main character, enemy characters, and other NPCs based on the training data. The "train_model" function, revered within the tome "train.py," shall guide us through this challenging yet rewarding journey. Prepare the path to the dataset YAML file, set the number of training epochs, and determine the image size, for these choices shall shape the destiny of our model. Invoke the "train_model" function, passing these sacred artifacts as offerings. Witness the evolution of our object detection model, as it learns to perceive the true essence of our characters and adversaries.
 ```sh
@@ -73,7 +73,7 @@ img_size = 640
 train_model(dataset_yaml, num_epochs, img_size)
 ```
 
-## Step 5: Modifying the LLM Agent and Play Functions<a name='5'></a>
+## 🤖 Step 5: Modifying the LLM Agent and Play Functions<a name='5'></a>
 ### 🤖 Awakening the AI Agent 🤖
 Behold, the time has come to awaken the AI agent that shall bring our characters to life! With our object detection model trained, it's time to integrate it into the game control mechanism. We'll modify the agent.py and play.py scripts to accommodate the new model and enable the AI to control the main character effectively. In agent.py, we'll add our Cohere trial API key to the llm_agent funtion. In play.py, based on the final object detection model's name and the keys responsible character's movement, special moves and attack, we'll modify the function. We'll use the llm_agent function to control the character's attacks and special moves. Depending on the detected positions of the main character and enemy characters, the LLM Agent will determine the appropriate actions for the character to take. 
 (Note I used two object detection models in play_game function, one for Main character and one for enemies because my training data was small, about 2 mins for each character, but you can just use one model if you're dataset is large enough and you're characters are human-like which was wasn't the case for me as Draugr's are monsters.)
@@ -134,7 +134,7 @@ elif action == "dodge back":
     keys.directKey("0x39", keys.key_release)
 ```
 
-## Playing the Game with AI
+## ⚔️ Playing the Game with AI
 ⚔️ The Dance of Victory ⚔️
 With our preparations complete, we stand poised to enter the game and unleash our newfound powers! The "play_game" function, an enchanting creation from the tome "play.py," shall guide our character through the trials and tribulations of the virtual world.
 
