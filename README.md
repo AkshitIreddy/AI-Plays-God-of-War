@@ -5,9 +5,9 @@ Welcome, brave warrior, to the magical realm of AI-Plays-God-of-War! 🎮 🎉 T
 
 ## Prerequisites
 Before we dive into the exciting details, let's make sure we have everything set up:
-1. Cohere Trial API Key: To get started, sign up for a Cohere trial and obtain your trial API key. This key will let you use Cohere's Language models for free.
-2. Game and Tools: Make sure you have God of War installed on your system. Additionally, we'll be using tools like image captioning models and YOLOv8, so install all the requirements from requirements.txt.
-3. GPT-4 Text and Image API (Optional): If you have access to the GPT-4 Text and Image API, you can enhance the AI capabilities by using the image input directly with GPT-4, replacing the image captioning model. This step is optional but can provide more accurate and seamless integration between the AI and the game.
+#### 1. Cohere Trial API Key: To get started, sign up for a Cohere trial and obtain your trial API key. This key will let you use Cohere's Language models for free.
+#### 2. Game and Tools: Make sure you have God of War installed on your system. Additionally, we'll be using tools like image captioning models and YOLOv8, so install all the requirements from requirements.txt.
+#### 3. GPT-4 Text and Image API (Optional): If you have access to the GPT-4 Text and Image API, you can enhance the AI capabilities by using the image input directly with GPT-4, replacing the image captioning model. This step is optional but can provide more accurate and seamless integration between the AI and the game.
 
 ## Project Structure
 Let's take a quick look at the structure of our project. It consists of several components and steps that we'll cover in detail:
@@ -54,43 +54,111 @@ threshold_list = [0.6, 0.7, 0.9]
 create_dataset(video_paths, threshold_list)
 ```
 
+## Step 4: Training the Object Detection Model
+### 🔥 Igniting the Flames of Training 🔥
+With the dataset in our possession, we now embark upon the holy act of training. Now comes the exciting part—training our object detection model! We'll use the powerful YOLOv8 model to train on the dataset we created in the previous step. This model will learn to identify our main character, enemy characters, and other NPCs based on the training data. The "train_model" function, revered within the tome "train.py," shall guide us through this challenging yet rewarding journey. Prepare the path to the dataset YAML file, set the number of training epochs, and determine the image size, for these choices shall shape the destiny of our model. Invoke the "train_model" function, passing these sacred artifacts as offerings. Witness the evolution of our object detection model, as it learns to perceive the true essence of our characters and adversaries.
+```sh
+from functions.train import train_model
 
+# Set the path to the dataset YAML file
+dataset_yaml = "dataset.yaml"
 
+# Set the number of training epochs and image size
+num_epochs = 100
 
+# Set imgsz 
+img_size = 640
 
+# Train the model using the dataset
+train_model(dataset_yaml, num_epochs, img_size)
+```
 
+## Step 5: Modifying the LLM Agent and Play Functions
+### 🤖 Awakening the AI Agent 🤖
+Behold, the time has come to awaken the AI agent that shall bring our characters to life! With our object detection model trained, it's time to integrate it into the game control mechanism. We'll modify the agent.py and play.py scripts to accommodate the new model and enable the AI to control the main character effectively. In agent.py, we'll add our Cohere trial API key to the llm_agent funtion. In play.py, based on the final object detection model's name and the keys responsible character's movement, special moves and attack, we'll modify the function. We'll use the llm_agent function to control the character's attacks and special moves. Depending on the detected positions of the main character and enemy characters, the LLM Agent will determine the appropriate actions for the character to take. 
+(Note I used two object detection models in play_game function, one for Main character and one for enemies because my training data was small, about 2 mins for each character, but you can just use one model if you're dataset is large enough and you're characters are human-like which was wasn't the case for me as Draugr's are monsters.)
 
+**Example of moving Player**
+```sh
+# Move Kratos towards the nearest person
+if distance_x < 0:
+    keys.directKey("a")
+    sleep(1)
+    keys.directKey("a", keys.key_release)
+elif distance_x > 0:
+    keys.directKey("d")
+    sleep(1)
+    keys.directKey("d", keys.key_release)
 
+if distance_y < 0:
+    keys.directKey("w")
+    sleep(1)
+    keys.directKey("w", keys.key_release)
+elif distance_y > 0:
+    keys.directKey("s")
+    sleep(1)
+    keys.directKey("s", keys.key_release)
+else:
+# Move the camera if no person is detected
+keys.directMouse(-20, 0)
+sleep(0.04)
+```
 
+**Example of doing attacks or special moves**
+```sh            
+# Select an action
+action = llm_agent(screen) 
+if action == "light attack":
+    # Left mouse click (attack)
+    keys.directMouse(buttons=keys.mouse_lb_press)
+    sleep(0.5)
+    keys.directMouse(buttons=keys.mouse_lb_release)
+elif action == "heavy attack":
+    # Right mouse click (attack)
+    keys.directMouse(buttons=keys.mouse_rb_press)
+    sleep(0.5)
+    keys.directMouse(buttons=keys.mouse_rb_release)
+elif action == "dodge back":
+    # Move in the opposite direction to the NPC
+    direction = random.choice(["w", "a", "s", "d"])
+    keys.directKey(direction)
+    sleep(0.04)
+    keys.directKey(direction, keys.key_release)
+    # Press the space bar twice
+    keys.directKey('0x39')
+    sleep(0.04)
+    keys.directKey("0x39", keys.key_release)
+    sleep(0.04)
+    keys.directKey('0x39')
+    sleep(0.04)
+    keys.directKey("0x39", keys.key_release)
+```
 
+## Playing the Game with AI
+⚔️ The Dance of Victory ⚔️
+With our preparations complete, we stand poised to enter the game and unleash our newfound powers! The "play_game" function, an enchanting creation from the tome "play.py," shall guide our character through the trials and tribulations of the virtual world.
 
+The mighty YOLOv8 model shall detect the positions of our character and enemies, while the ingenious "Key.py" script, birthed from the sacred teachings of sentdex's CybePython Tutorial, shall guide our hero towards their foes. The LLM agent, a true embodiment of intelligence, shall determine the character's actions and maneuvers.
 
+Behold the code that shall set our character in motion, navigating the virtual realm with grace and power:
+```sh
+from functions.play import play_game
+import time
 
+# sleep for some time to give me time to open the game
+time.sleep(100)
 
+# Call the function to perform object detection on the screen
+play_game()
+```
 
+### Conclusion
+### 🎉 A Tale of Legends, Laughter, and Triumph 🎉
+Congratulations, noble warrior, for completing this mystical journey through the realm of AI-Plays-God-of-War! We have traversed the depths of artificial intelligence, weaving magic and technology into a tapestry of triumph. Together, we have harnessed the power of YOLOv8, trained a formidable object detection model, and awakened a LLM agent to guide our every move.
 
+Now, armed with knowledge and wit, you are ready to embark upon your own adventures. Unleash the power of AI in your favorite games, conquer virtual realms, and make the gods themselves bow before your prowess.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Now, grab your controller, embark on an epic journey, and let the AI lead you to victory! May the gods be with you! 🌟⚔️🎮
 
 
 
