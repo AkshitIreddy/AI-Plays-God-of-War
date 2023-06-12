@@ -12,14 +12,14 @@ Before we dive into the exciting details, let's make sure we have everything set
 ## Project Structure
 Let's take a quick look at the structure of our project. It consists of several components and steps that we'll cover in detail:
 
-#### 1. Creating a Custom YOLOv8 Model
+#### 1. [Creating a Custom YOLOv8 Model](#1)
 #### 2. Preprocessing Training Videos
 #### 3. Creating the Dataset
 #### 4. Training the Object Detection Model
 #### 5. Modifying the LLM Agent and Play Functions
 Now, let's dive into each step and explore how each step works. 🤖🎮
 
-## Step 1: Creating a Custom YOLOv8 Model
+## Step 1: Creating a Custom YOLOv8 Model<a name='1'></a>
 ### ✨ First Steps on the Path of the Gods ✨
 To begin your epic quest, you must forge a YOLOv8 model capable of identifying characters, enemies, and other NPCs within the game. To enable the AI to detect characters and objects in the game, we'll start by creating a custom YOLOv8 model. This model will be trained to identify our main character, enemy characters, and other non-playable character (NPC) types based on your specific needs.
 
