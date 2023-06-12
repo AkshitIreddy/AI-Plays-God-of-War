@@ -5,6 +5,8 @@ Welcome, brave warrior, to the magical realm of AI-Plays-God-of-War! 🎮 🎉 T
 
 ![demo](https://github.com/AkshitIreddy/AI-Plays-God-of-War/assets/90443032/e73fb8b3-3fa6-4fac-81a3-4c71b29db472)
 
+Demo: https://www.youtube.com/watch?v=9BIkt_jXNSE
+
 ## Prerequisites 💭📝
 Before we dive into the exciting details, let's make sure we have everything set up:
 #### 1. Cohere Trial API Key: To get started, sign up for a Cohere account and obtain your trial API key. This key will let you use Cohere's Language models for free.
