@@ -28,6 +28,7 @@ To create this model, we'll need videos of each character recorded individually.
 For simplicity, instead of manually identifying bounding boxes for each character in each frame of the video, we'll leverage object detection techniques. We'll use an object detection model to detect characters in the videos and use the resulting bounding box coordinates as training data. Since most characters in games have a humaniod body they will be detected as humans and we can use those co-ordinates. This significantly reduces the manual effort involved.
 
 ## Preprocessing Training Videos
+### 🌌 Unveiling the Mystical Rituals of Video Preprocessing 🌌
 Once we have recorded the videos for each character, we'll preprocess them to remove frames where no detections are found. This step helps us clean the data and ensures we only include frames where the model can accurately detect the character's position. Through the use of the magical "preprocess_training_video" function in the hallowed script known as "preprocess.py," we shall cleanse our videos of imperfections. You can also use this to figure out the correct threshold value where the model is able to detect the position of our character which will come in handy when you are creating the dataset. 
 ```sh
 from functions.preprocess import preprocess_training_video
@@ -39,11 +40,19 @@ video_path = "training_videos/atreus_training_video.mp4"
 preprocess_training_video(video_path)
 ```
 
-Step 3: Creating the Dataset
-With the preprocessed videos at hand, we can now generate a dataset that will serve as training data for our object detection model. Depending on which threshold performed best at identifying the character during the preprocessing step, we'll compile a list of video paths and corresponding threshold values.
+## Step 3: Creating the Dataset
+### 📦 Forging the Dataset 📦
+Now that our videos have been purified, we can venture forth to create a magnificent dataset. With the video paths and threshold values in hand, we shall employ the mighty "create_dataset" function from the sacred tome known as "dataset.py" to generate a dataset that will serve as training data for our object detection model. Depending on which threshold performed best at identifying the character during the preprocessing step, we'll compile a list of video paths and corresponding threshold values. The generated dataset will contain the necessary information for training our custom object detection model.
+```sh
+from functions.dataset import create_dataset
 
-Using the create_dataset function from the dataset.py script, we'll combine the videos and thresholds to generate a dataset in the desired format. This dataset will contain the necessary information for training our custom object detection model.
+# Set the paths to video_paths and set the values in threshold_list
+video_paths = ['preprocessed_videos/Draugr.mp4', 'preprocessed_videos/Atreus.mp4', 'preprocessed_videos/Kratos.mp4']
+threshold_list = [0.6, 0.7, 0.9]
 
+# Create the dataset
+create_dataset(video_paths, threshold_list)
+```
 
 
 
