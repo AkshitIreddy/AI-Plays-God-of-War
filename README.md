@@ -5,18 +5,18 @@ Welcome, brave warrior, to the magical realm of AI-Plays-God-of-War! 🎮 🎉 T
 
 ## Prerequisites 💭📝
 Before we dive into the exciting details, let's make sure we have everything set up:
-#### 1. Cohere Trial API Key: To get started, sign up for a Cohere trial and obtain your trial API key. This key will let you use Cohere's Language models for free.
+#### 1. Cohere Trial API Key: To get started, sign up for a Cohere account and obtain your trial API key. This key will let you use Cohere's Language models for free.
 #### 2. Game and Tools: Make sure you have God of War installed on your system. Additionally, we'll be using tools like image captioning models and YOLOv8, so install all the requirements from requirements.txt.
 #### 3. GPT-4 Text and Image API (Optional): If you have access to the GPT-4 Text and Image API, you can enhance the AI capabilities by using the image input directly with GPT-4, replacing the image captioning model. This step is optional but can provide more accurate and seamless integration between the AI and the game.
 
 ## Project Structure 🚀🌐
 Let's take a quick look at the structure of our project. It consists of several components and steps that we'll cover in detail:
 
-#### [✨ Creating a Custom YOLOv8 Model](#1)
-#### [✨ Preprocessing Training Videos](#2)
-#### [✨ Creating the Dataset](#3)
-#### [✨ Training the Object Detection Model](#4)
-#### [✨ Modifying the LLM Agent and Play Functions](#5)
+#### [🍪 Creating a Custom YOLOv8 Model](#1)
+#### [🍩 Preprocessing Training Videos](#2)
+#### [🍰 Creating the Dataset](#3)
+#### [🧁 Training the Object Detection Model](#4)
+#### [🍭 Modifying the LLM Agent and Play Functions](#5)
 Now, let's dive into each step and explore how each step works. 🤖🎮
 
 ## ✨ Step 1: Creating a Custom YOLOv8 Model<a name='1'></a>
