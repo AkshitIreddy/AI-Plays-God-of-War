@@ -138,7 +138,7 @@ elif action == "dodge back":
 ### ⚔️ The Dance of Victory ⚔️
 With our preparations complete, we stand poised to enter the game and unleash our newfound powers! The "play_game" function, an enchanting creation from the tome "play.py," shall guide our character through the trials and tribulations of the virtual world.
 
-The mighty YOLOv8 model shall detect the positions of our character and enemies, while the ingenious "Key.py" script, birthed from the sacred teachings of sentdex's CybePython Tutorial, shall guide our hero towards their foes. The LLM agent, a true embodiment of intelligence, shall determine the character's actions and maneuvers.
+The mighty YOLOv8 model shall detect the positions of our character and enemies, while the ingenious "Key.py" script, birthed from the sacred teachings of sentdex's CyberPython Tutorial, shall guide our hero towards their foes. The LLM agent, a true embodiment of intelligence, shall determine the character's actions and maneuvers.
 
 Behold the code that shall set our character in motion, navigating the virtual realm with grace and power:
 ```sh
