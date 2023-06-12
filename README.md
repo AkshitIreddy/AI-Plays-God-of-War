@@ -152,7 +152,7 @@ time.sleep(100)
 play_game()
 ```
 
-## Conclusion
+## ✨ Conclusion
 ### 🎉 A Tale of Legends, Laughter, and Triumph 🎉
 Congratulations, noble warrior, for completing this mystical journey through the realm of AI-Plays-God-of-War! We have traversed the depths of artificial intelligence, weaving magic and technology into a tapestry of triumph. Together, we have harnessed the power of YOLOv8, trained a formidable object detection model, and awakened a LLM agent to guide our every move.
 
