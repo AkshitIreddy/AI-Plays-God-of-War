@@ -12,11 +12,11 @@ Before we dive into the exciting details, let's make sure we have everything set
 ## Project Structure
 Let's take a quick look at the structure of our project. It consists of several components and steps that we'll cover in detail:
 
-#### 1. [Creating a Custom YOLOv8 Model](#1)
-#### 2. [Preprocessing Training Videos](#2)
-#### 3. [Creating the Dataset](#3)
-#### 4. [Training the Object Detection Model](#4)
-#### 5. [Modifying the LLM Agent and Play Functions](#5)
+#### [Creating a Custom YOLOv8 Model](#1)
+#### [Preprocessing Training Videos](#2)
+#### [Creating the Dataset](#3)
+#### [Training the Object Detection Model](#4)
+#### [Modifying the LLM Agent and Play Functions](#5)
 Now, let's dive into each step and explore how each step works. 🤖🎮
 
 ## Step 1: Creating a Custom YOLOv8 Model<a name='1'></a>
